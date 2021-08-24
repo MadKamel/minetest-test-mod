@@ -1,7 +1,7 @@
 local S = minetest.get_translator("minetest-test-mod")
 
 
-
+-- Nodes for general testing. A kind of blank slate node.
 minetest.register_node("minetest-test-mod:test_node", {
 	description = S("Testing Node"),
 	tiles = {"test_block.png"},
@@ -14,10 +14,32 @@ minetest.register_craftitem("minetest-test-mod:test_craftitem", {
 })
 
 
-
+-- This is a node that I am using to test out node inventories.
 minetest.register_node("minetest-test-mod:inventory_testing_node", {
 	description = S("Meta Inventory Testing Node"),
-	tiles = {"test_machine.png"},
+	-- recycled code from KSurvive pitch source.
+	tiles = {
+		{
+			name = "test_machine_animation.png",
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 8,
+			},
+		},
+		{
+			name = "test_machine_animation.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 8,
+			},
+		},
+	},
 	groups = {cracky = 3},
 	-- https://rubenwardy.com/minetest_modding_book/en/players/formspecs.html
 	after_place_node = function(pos, placer)
