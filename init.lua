@@ -1,6 +1,7 @@
 local S = minetest.get_translator("minetest-test-mod")
 
 
+
 -- Nodes for general testing. A kind of blank slate node.
 minetest.register_node("minetest-test-mod:test_node", {
 	description = S("Testing Node"),
@@ -12,6 +13,7 @@ minetest.register_craftitem("minetest-test-mod:test_craftitem", {
 	description = S("Testing Craftitem"),
 	tiles = {"test_craftitem.png"},
 })
+
 
 
 -- This is a node that I am using to test out node inventories.
