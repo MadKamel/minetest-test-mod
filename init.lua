@@ -4,7 +4,7 @@ local S = minetest.get_translator("minetest-test-mod")
 -- Nodes for general testing. A kind of blank slate node.
 minetest.register_node("minetest-test-mod:test_node", {
 	description = S("Testing Node"),
-	tiles = {"test_block.png"},
+	tiles = {"default_steel_block.png^test_block_side.png"},
 	groups = {dig_immediate = 3},
 })
 
