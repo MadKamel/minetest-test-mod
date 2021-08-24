@@ -1,4 +1,4 @@
-
+dofile(minetest.get_modpath("minetest-test-mod").."/artefacts.lua")
 
 local S = minetest.get_translator("minetest-test-mod")
 
