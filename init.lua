@@ -1,3 +1,5 @@
+
+
 local S = minetest.get_translator("minetest-test-mod")
 
 
@@ -62,4 +64,32 @@ minetest.register_node("minetest-test-mod:inventory_testing_node", {
 		end
 		print(fields.x)
 	end,
+})
+
+
+
+minetest.register_node("minetest-test-mod:test_vines_firelike", {
+	description = S("Testing Firelike Vines"),
+	drawtype = "firelike"
+	tiles = {"testing_vines.png"},
+	groups = {dig_immediate = 3},
+})
+
+minetest.register_node("minetest-test-mod:test_vines_signlike", {
+	description = S("Testing Signlike Vines"),
+	drawtype = "signlike"
+	tiles = {"testing_vines.png"},
+	paramtype2 = "wallmounted",
+	selection_box = {
+		type = "wallmounted",
+	},
+	groups = {dig_immediate = 3},
+})
+
+sfinv.register_page("minetest-test-mod:testing_sfinv_page", {
+    title = "Minetest Test Mod: SFINV Page",
+    get = function(self, player, context)
+        return sfinv.make_formspec(player, context,
+                "label[0.1,0.1;Hello, world!]", true)
+    end
 })
