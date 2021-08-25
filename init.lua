@@ -26,19 +26,9 @@ minetest.register_node("mt_test_mod:inventory_testing_node", {
 				type = "vertical_frames",
 				aspect_w = 16,
 				aspect_h = 16,
-				length = 8,
+				length = 1,
 			},
-		},
-		{
-			name = "test_machine_animation.png",
-			backface_culling = true,
-			animation = {
-				type = "vertical_frames",
-				aspect_w = 16,
-				aspect_h = 16,
-				length = 8,
-			},
-		},
+		}
 	},
 	groups = {cracky = 3},
 	-- https://rubenwardy.com/minetest_modding_book/en/players/formspecs.html
@@ -47,12 +37,8 @@ minetest.register_node("mt_test_mod:inventory_testing_node", {
 		-- The following code sets the formspec for chest.
 		-- Meta is a way of storing data onto a node.
 
-		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec",
-			"formspec_version[4]" ..
-			"size[5,5]" ..
-			"label[1,1;This is shown on right click]" ..
-			"field[1,2;2,1;x;x;]")
+		--local meta = minetest.get_meta(pos)
+		--meta:set_string("formspec", "label[1,1;Testing...]")
 	end,
 	on_receive_fields = function(pos, formname, fields, player)
 		if fields.quit then
@@ -67,17 +53,21 @@ minetest.register_node("mt_test_mod:inventory_testing_node", {
 minetest.register_node("mt_test_mod:test_vines_firelike", {
 	description = "Testing Firelike Vines",
 	drawtype = "firelike",
-	tiles = {"test_vines.png"},
+	tiles = {"testing_vines.png"},
 	groups = {dig_immediate = 3},
+	paramtype = "light",
+	walkable = false
 })
 
 minetest.register_node("mt_test_mod:test_vines_signlike", {
 	description = "Testing Signlike Vines",
 	drawtype = "signlike",
-	tiles = {"test_vines.png"},
+	tiles = {"testing_vines.png"},
 	paramtype2 = "wallmounted",
 	selection_box = {
 		type = "wallmounted",
 	},
 	groups = {dig_immediate = 3},
+	paramtype = "light",
+	walkable = false
 })
