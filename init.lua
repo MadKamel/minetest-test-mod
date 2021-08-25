@@ -10,6 +10,8 @@ minetest.register_node("mt_test_mod:test_node", {
 minetest.register_craftitem("mt_test_mod:test_craftitem", {
 	description = "Testing Craftitem",
 	tiles = {"test_craftitem.png"},
+	wield_image = "test_craftitem.png",
+	inventory_image = "test_craftitem.png"
 })
 
 
