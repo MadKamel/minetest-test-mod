@@ -1,26 +1,22 @@
-dofile(minetest.get_modpath("minetest-test-mod").."/artefacts.lua")
-
-local S = minetest.get_translator("minetest-test-mod")
-
-
+dofile(minetest.get_modpath("mt_test_mod").."/artefacts.lua")
 
 -- Nodes for general testing. A kind of blank slate node.
-minetest.register_node("minetest-test-mod:test_node", {
-	description = S("Testing Node"),
+minetest.register_node("mt_test_mod:test_node", {
+	description = "Testing Node",
 	tiles = {"default_steel_block.png", "test_block_side.png"},
 	groups = {dig_immediate = 3},
 })
 
-minetest.register_craftitem("minetest-test-mod:test_craftitem", {
-	description = S("Testing Craftitem"),
+minetest.register_craftitem("mt_test_mod:test_craftitem", {
+	description = "Testing Craftitem",
 	tiles = {"test_craftitem.png"},
 })
 
 
 
 -- This is a node that I am using to test out node inventories.
-minetest.register_node("minetest-test-mod:inventory_testing_node", {
-	description = S("Meta Inventory Testing Node"),
+minetest.register_node("mt_test_mod:inventory_testing_node", {
+	description = "Meta Inventory Testing Node",
 	-- recycled code from KSurvive pitch source.
 	tiles = {
 		{
@@ -68,28 +64,20 @@ minetest.register_node("minetest-test-mod:inventory_testing_node", {
 
 
 
-minetest.register_node("minetest-test-mod:test_vines_firelike", {
-	description = S("Testing Firelike Vines"),
-	drawtype = "firelike"
-	tiles = {"testing_vines.png"},
+minetest.register_node("mt_test_mod:test_vines_firelike", {
+	description = "Testing Firelike Vines",
+	drawtype = "firelike",
+	tiles = {"test_vines.png"},
 	groups = {dig_immediate = 3},
 })
 
-minetest.register_node("minetest-test-mod:test_vines_signlike", {
-	description = S("Testing Signlike Vines"),
-	drawtype = "signlike"
-	tiles = {"testing_vines.png"},
+minetest.register_node("mt_test_mod:test_vines_signlike", {
+	description = "Testing Signlike Vines",
+	drawtype = "signlike",
+	tiles = {"test_vines.png"},
 	paramtype2 = "wallmounted",
 	selection_box = {
 		type = "wallmounted",
 	},
 	groups = {dig_immediate = 3},
-})
-
-sfinv.register_page("minetest-test-mod:testing_sfinv_page", {
-    title = "Minetest Test Mod: SFINV Page",
-    get = function(self, player, context)
-        return sfinv.make_formspec(player, context,
-                "label[0.1,0.1;Hello, world!]", true)
-    end
 })
