@@ -31,17 +31,16 @@ minetest.register_node("mt_test_mod:inventory_testing_node", {
 				length = 1,
 			},
 		}
-	},
-	groups = {cracky = 3},
-	-- https://rubenwardy.com/minetest_modding_book/en/players/formspecs.html
+	}, -- https://rubenwardy.com/minetest_modding_book/en/players/formspecs.html
 	after_place_node = function(pos, placer)
 		-- This function is run when the chest node is placed.
 		-- The following code sets the formspec for chest.
 		-- Meta is a way of storing data onto a node.
 
-		--local meta = minetest.get_meta(pos)
-		--meta:set_string("formspec", "label[1,1;Testing...]")
+		local meta = minetest.get_meta(pos)
+		meta:set_string("formspec", "label[1,1;Testing...]")
 	end,
+	groups = {dig_immediate = 3},
 	on_receive_fields = function(pos, formname, fields, player)
 		if fields.quit then
 			return
@@ -50,7 +49,36 @@ minetest.register_node("mt_test_mod:inventory_testing_node", {
 	end,
 })
 
+minetest.register_node("mt_test_mod:supercomputer", {
+	description = "Supercomputer",
+	tiles = {
+		"t.computer_top.png",
+		"t.computer_top.png",
+		"t.computer_front.png",
+		"t.computer_front.png",
+		"t.computer_side.png",
+		"t.computer_side.png"
+	},
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.4375, -0.5, -0.375, 0.4375, 0.125, 0.375}, -- NodeBox1
+			{-0.4375, 0.1875, -0.4375, 0.4375, 0.5, 0.4375}, -- NodeBox2
+			{-0.375, 0.125, -0.3125, 0.375, 0.1875, 0.3125}, -- NodeBox3
+		}
+	},
+	groups = {oddly_breakable_by_hand=3, falling_node=1}
+})
 
+minetest.register_node("mt_test_mod:test_node", {
+	description = "Test Node",
+	tiles = {"test_block_side.png"},
+	paramtype = "light",
+	groups = {oddly_breakable_by_hand=3, falling_node=1}
+})
 
 minetest.register_node("mt_test_mod:test_vines_firelike", {
 	description = "Testing Firelike Vines",
